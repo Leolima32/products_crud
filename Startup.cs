@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using products_crud.Context;
+using products_crud.Repositories;
+using products_crud.Repositories.Persistence;
 
 namespace products_crud
 {
@@ -31,6 +33,7 @@ namespace products_crud
         {
             // Add framework services.
             services.AddDbContext<ProductsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
             services.AddMvc();
         }
 

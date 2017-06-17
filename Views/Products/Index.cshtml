@@ -6,21 +6,16 @@
     <div class="col-md-4 col-lg-3 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
-                <h3 class="panel-title pull-left">@product.Name</h3>
+                <h3 class="panel-title pull-left">@product.productName</h3>
                 <a class="btn btn-default pull-right" href="#">
                     <i class="fa fa-check"></i> Button
                 </a>
             </div>
             <div class="panel-body">
-                <img class="card-img-top" src="@product.Image" alt="Card image cap">
-                <p>@product.Description</p>
-                <h4 class="pull-right">R$@product.Price.ToString("0.00")</h4>
+                <img class="card-img-top" src="@product.productImagePath" alt="Card image cap">
+                <h4 class="pull-right">R$@product.productPrice.ToString("0.00")</h4>
             </div>
-            <!--<div class="panel-footer">
-                <small>
-                    @String.Join(", ", product.Categories.Select(p => p.Name).ToArray())
-                </small>
-            </div>-->
+
         </div>
     </div>
     }

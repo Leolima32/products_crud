@@ -4,9 +4,9 @@ using products_crud.Repositories;
 
 namespace products_crud.Controllers
 {
-    public class ProductController: Controller {
+    public class ProductsController: Controller {
         private readonly IUnitOfWork _unit;
-        public ProductController (IUnitOfWork unit) {
+        public ProductsController (IUnitOfWork unit) {
             _unit = unit;
         }
         public IActionResult Index () {
@@ -20,6 +20,7 @@ namespace products_crud.Controllers
         [HttpPost]
         public void Create(Product product) {
             _unit.Product.Add(product);
+            _unit.Commit();
         }
     }
 }
