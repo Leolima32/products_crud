@@ -6,7 +6,9 @@ namespace products_crud.Models
         [Key]
         public int productId { get; set; }
         public string productName { get; set; }
-        public int rating { get; set; }
+        public float productRating { get; set; }
+        public float productPrice { get; set; }
+        public string productImagePath { get; set; }
         public int categoryId { get; set; }
     }
 

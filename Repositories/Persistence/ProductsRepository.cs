@@ -11,7 +11,7 @@ namespace products_crud.Repositories.Persistence
         public IEnumerable<Product> GetProducts() {
             return _db.Products;
         } 
-        void Add (Product product) {
+        public void Add (Product product) {
             _db.Products.Add(product);
         }
     }

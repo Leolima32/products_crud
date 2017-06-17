@@ -1,0 +1,8 @@
+@model products_crud.Models.Product
+
+<form asp-controller="Products" asp-action="Include" method="post">
+    Name: <input asp-for="productName" />
+    Rating: <input asp-for="productRating" />
+    Price: <input asp-for="productPrice" />
+    <button type="submit">Register</button>
+</form>

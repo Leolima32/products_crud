@@ -1,0 +1,27 @@
+@model IEnumerable<products_crud.Models.Product>
+
+<div class="container">
+    <h1>From Games List</h1>
+    @foreach (var product in Model) {
+    <div class="col-md-4 col-lg-3 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title pull-left">@product.Name</h3>
+                <a class="btn btn-default pull-right" href="#">
+                    <i class="fa fa-check"></i> Button
+                </a>
+            </div>
+            <div class="panel-body">
+                <img class="card-img-top" src="@product.Image" alt="Card image cap">
+                <p>@product.Description</p>
+                <h4 class="pull-right">R$@product.Price.ToString("0.00")</h4>
+            </div>
+            <!--<div class="panel-footer">
+                <small>
+                    @String.Join(", ", product.Categories.Select(p => p.Name).ToArray())
+                </small>
+            </div>-->
+        </div>
+    </div>
+    }
+</div>
