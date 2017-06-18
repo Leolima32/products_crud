@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using products_crud.Models;
 using products_crud.Repositories;
+using products_crud.ViewModels;
 
 namespace products_crud.Controllers
 {
@@ -10,7 +12,11 @@ namespace products_crud.Controllers
             _unit = unit;
         }
         public IActionResult Index () {
-            return View(_unit.Product.GetProducts());
+            ProductList model = new ProductList() {
+                productList = _unit.Product.GetProducts(),
+                disponibleCategories = _unit.Category.GetAllCategories()
+            };
+            return View(model);
         }
 
         [HttpGet]

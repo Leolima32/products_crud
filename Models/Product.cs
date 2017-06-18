@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace products_crud.Models
@@ -11,6 +12,7 @@ namespace products_crud.Models
         public string productDescription { get; set; }
         public string productImagePath { get; set; }
         public int categoryId { get; set; }
+        public IEnumerable<Category> Categories { get; set; }
     }
 
 }
