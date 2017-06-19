@@ -1,24 +1,27 @@
-@model IEnumerable<products_crud.ViewModels.ProductList>
-
-<div class="container">
-    <h1>Product List</h1>
-    <div class="row">Filter by: <label>Category 
-        <select asp-for="disponibleCategories">
-</select></label></div>
-    
-    
+@model IEnumerable<products_crud.Models.Product>
+<form class="form-inline">
+        <label class="col-sm-2 control-label">Categories</label>
+        <div class="col-sm-10">
+            <select multiple class="form-control">
+            @foreach (var categorie in ViewBag.Categories) {
+                <option value="@categorie.categorieId">@categorie.categorieName</option>
+            }
+            </select>
+        </div>
+</form>
     <div class="row">
-    @foreach (var product in Model.productList) {
+    @foreach (var product in Model) {
     <div class="col-md-4 col-lg-3 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
                 <h3 class="panel-title pull-left">@product.productName</h3>
                 <a class="btn btn-default pull-right" href="#">
-                    <i class="fa fa-check"></i> Button
+                    <i class="fa fa-check"></i> Visualize
                 </a>
             </div>
             <div class="panel-body">
-                <img class="card-img-top" src="@product.productImagePath" alt="Card image cap">
+                <img class="card-img-top" src="@product.productImagePath" alt="Card image cap" style="width:232px">
+                <p>@product.productDescription</p>
                 <h4 class="pull-right">R$@product.productPrice.ToString("0.00")</h4>
             </div>
 

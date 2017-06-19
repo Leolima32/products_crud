@@ -11,5 +11,21 @@ namespace products_crud.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CategoryProducts>()
+            .HasKey(t => new { t.productId, t.categoryId });
+
+            modelBuilder.Entity<CategoryProducts>()
+                .HasOne(pt => pt.Product)
+                .WithMany(p => p.CategoryProducts)
+                .HasForeignKey(pt => pt.productId);
+
+            modelBuilder.Entity<CategoryProducts>()
+                .HasOne(pt => pt.Category)
+                .WithMany(t => t.CategoryProducts)
+                .HasForeignKey(pt => pt.categoryId);
+        }
+
     }
 }

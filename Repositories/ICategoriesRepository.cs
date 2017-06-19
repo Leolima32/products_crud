@@ -5,7 +5,7 @@ namespace products_crud.Repositories
 {
     public interface ICategoriesRepository
     {
-        List<Category> GetAllCategories();
+        IEnumerable<Category> GetAllCategories();
         Category GetCategoryById(int categoryId);
     }
 }

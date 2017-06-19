@@ -12,9 +12,18 @@ namespace products_crud.Repositories.Persistence
         {
             _db = db;
         }
-        public List<Category> GetAllCategories()
+        public IEnumerable<Category> GetAllCategories()
         {
-            return _db.Categories.ToList();
+            try
+            {
+                return _db.Categories.ToList();
+            }
+            catch (System.Exception ex)
+            {
+                
+                throw ex;
+            }
+            
         }
         public Category GetCategoryById(int categoryId)
         {

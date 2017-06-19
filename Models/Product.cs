@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace products_crud.Models
 {
@@ -11,8 +12,6 @@ namespace products_crud.Models
         public float productPrice { get; set; }
         public string productDescription { get; set; }
         public string productImagePath { get; set; }
-        public int categoryId { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
+        public virtual List<CategoryProducts> CategoryProducts { get; set; }
     }
-
 }

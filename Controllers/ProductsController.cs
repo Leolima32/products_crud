@@ -12,10 +12,11 @@ namespace products_crud.Controllers
             _unit = unit;
         }
         public IActionResult Index () {
-            ProductList model = new ProductList() {
-                productList = _unit.Product.GetProducts(),
-                disponibleCategories = _unit.Category.GetAllCategories()
-            };
+            ViewBag.Categories = _unit.Category.GetAllCategories();
+            var model = _unit.Product.GetProducts();
+            foreach(var item in model) {
+                item.productImagePath = item.productImagePath ?? "\\images\\placeholder.png";
+            }
             return View(model);
         }
 
@@ -23,10 +24,11 @@ namespace products_crud.Controllers
         public IActionResult Create () {
             return View();
         }
-        [HttpPost]
-        public void Create(Product product) {
+        [HttpPost]  
+        public IActionResult Create(Product product) {
             _unit.Product.Add(product);
             _unit.Commit();
+            return RedirectToAction("Index");
         }
     }
 }

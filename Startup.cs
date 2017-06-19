@@ -61,11 +61,11 @@ namespace products_crud
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetService<ProductsContext>();
-                context.Database.Migrate();
-            }
+            // using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            // {
+            //     var context = serviceScope.ServiceProvider.GetService<ProductsContext>();
+            //     context.Database.Migrate();
+            // }
         }
     }
 }

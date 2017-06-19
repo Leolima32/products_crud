@@ -7,6 +7,6 @@ namespace products_crud.ViewModels
     {
         public IEnumerable<Product> productList { get; set; }
         public string category { get; set; }
-        public List<Category> disponibleCategories { get; set; }
+        public IEnumerable<Category> disponibleCategories { get; set; }
     }    
 }
