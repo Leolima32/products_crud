@@ -1,0 +1,8 @@
+@model IEnumerable<products_crud.Models.Category>
+<form asp-controller="Products" asp-action="Create" method="post">
+  <div class="form-group">
+    <label for="categoryName">Category</label>
+    <input asp-for="categoryName" class="form-control" placeholder="Category Name">
+  </div>
+  <button type="submit">Register</button>
+</form>

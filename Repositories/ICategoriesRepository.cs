@@ -7,5 +7,6 @@ namespace products_crud.Repositories
     {
         IEnumerable<Category> GetAllCategories();
         Category GetCategoryById(int categoryId);
+        void Add(Category category);
     }
 }
