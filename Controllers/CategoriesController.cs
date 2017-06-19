@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using products_crud.Models;
 using products_crud.Repositories;
+using products_crud.ViewModels;
 
 namespace products_crud
 {
@@ -11,7 +12,8 @@ namespace products_crud
         }
 
         public IActionResult Index () {
-            return View(_unit.Category.GetAllCategories());
+            CategoryIndex model = new CategoryIndex(){ allProducts = _unit.Product.GetProducts(), allCategories = _unit.Category.GetAllCategories() };
+            return View(model);
         }
 
         [HttpPost]

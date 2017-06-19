@@ -6,6 +6,7 @@ namespace products_crud.Repositories.Persistence
     {
         private IProductsRepository _productsRepository;
         private ICategoriesRepository _categoryRepository;
+        private ICategoryProductsRepository _categoryProductsRepository;
         private readonly ProductsContext _db;
         public UnitOfWork(ProductsContext db) { _db = db; }
 
@@ -24,6 +25,15 @@ namespace products_crud.Repositories.Persistence
                     _categoryRepository = new CategoriesRepository(_db);
                 }
                 return _categoryRepository;
+            }
+        }
+
+        public ICategoryProductsRepository CategoryProducts {
+            get {
+                if(_categoryProductsRepository == null) {
+                    _categoryProductsRepository = new CategoryProductsRepository(_db);
+                }
+                return _categoryProductsRepository;
             }
         }
 

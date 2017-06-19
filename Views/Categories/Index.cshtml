@@ -1,8 +1,23 @@
-@model IEnumerable<products_crud.Models.Category>
-<form asp-controller="Products" asp-action="Create" method="post">
+@model products_crud.ViewModels.CategoryIndex
+<form asp-controller="Categories" asp-action="Create" method="post">
   <div class="form-group">
-    <label for="categoryName">Category</label>
-    <input asp-for="categoryName" class="form-control" placeholder="Category Name">
+    <label>Category</label>
+    <input asp-for="category.categoryName" class="form-control" placeholder="Category Name">
   </div>
   <button type="submit">Register</button>
 </form>
+<h1>Categories</h1>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Category Name</th>
+    <th></th>
+  </tr>
+@foreach(var item in Model.allCategories) {
+<tr>
+  <td>@item.categoryId</td>
+  <td>@item.categoryName</td>
+  <td class="col-md-2"><button type="button" class="btn btn-default" aria-label="Help"><span class="glyphicon glyphicon-remove"></span></button></td>
+</tr>
+}
+</table>

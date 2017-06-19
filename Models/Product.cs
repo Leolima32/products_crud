@@ -13,5 +13,9 @@ namespace products_crud.Models
         public string productDescription { get; set; }
         public string productImagePath { get; set; }
         public virtual List<CategoryProducts> CategoryProducts { get; set; }
+
+        [NotMapped]
+        public List<Category> Categories { get; set; }
+
     }
 }

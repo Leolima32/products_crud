@@ -6,6 +6,7 @@ namespace products_crud.Repositories
     {
         IProductsRepository Product { get; }
         ICategoriesRepository Category { get; }
+        ICategoryProductsRepository CategoryProducts { get; }
         void Commit();
     }
 }
