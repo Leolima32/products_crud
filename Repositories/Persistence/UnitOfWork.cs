@@ -46,9 +46,11 @@ namespace products_crud.Repositories.Persistence
                 return _productReviewRepository;
             }
         }
-        
         public void Commit() {
             _db.SaveChanges();
+        }
+        public void Close() {
+            _db.Dispose();
         }
     }
 }

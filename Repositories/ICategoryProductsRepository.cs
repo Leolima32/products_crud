@@ -9,5 +9,7 @@ namespace products_crud.Repositories
         void Add(CategoryProducts categoryProducts);
         
         IEnumerable<CategoryProducts> GetCategoriesProductsPerProductId(int productId);
+
+        IEnumerable<CategoryProducts> GetCategoriesProductsPerCategoryId(int categoryId);
     }
 }

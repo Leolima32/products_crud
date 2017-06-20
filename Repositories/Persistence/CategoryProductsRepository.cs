@@ -22,5 +22,8 @@ namespace products_crud.Repositories.Persistence
         public IEnumerable<CategoryProducts> GetCategoriesProductsPerProductId(int id) {
             return _db.CategoryProducts.Where(x => x.productId == id);
         }
+        public IEnumerable<CategoryProducts> GetCategoriesProductsPerCategoryId(int id) {
+            return _db.CategoryProducts.Where(x => x.categoryId == id);
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace products_crud.Repositories
         ICategoryProductsRepository CategoryProducts { get; }
         IProductReviewRepository ProductReview { get; }
         void Commit();
+        void Close();
     }
 }

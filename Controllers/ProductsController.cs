@@ -3,7 +3,9 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using products_crud.Models;
 using products_crud.Repositories;
+using products_crud.Repositories.Persistence;
 using products_crud.ViewModels;
+using products_crud.Context;
 
 namespace products_crud.Controllers
 {
@@ -47,5 +49,24 @@ namespace products_crud.Controllers
             _unit.Commit();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public IActionResult Filter(string filter, int categoryId) {
+            ProductIndex model = new ProductIndex() {
+                allProducts = _unit.Product.Filter(filter, categoryId),
+                allCategories = _unit.Category.GetAllCategories()
+            };
+            foreach(var item in model.allProducts) {
+                item.productImagePath = item.productImagePath ?? "\\images\\placeholder.png";
+                IEnumerable<CategoryProducts> c = _unit.CategoryProducts.GetCategoriesProductsPerProductId(item.productId);
+                item.Categories = new List<Category>();
+                foreach (var s in c)
+                {
+                    Category category = _unit.Category.GetCategoryById(s.categoryId);
+                    item.Categories.Add(category);
+                }
+            }
+            return View("Index",model);
+        }
+
     }
 }
