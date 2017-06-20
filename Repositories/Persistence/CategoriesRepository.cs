@@ -29,7 +29,6 @@ namespace products_crud.Repositories.Persistence
         {
             return _db.Categories.FirstOrDefault(x => x.categoryId == categoryId);
         }
-
         public void Add (Category category) {
             _db.Categories.Add(category);
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using products_crud.Context;
 using products_crud.Models;
 
@@ -13,6 +14,9 @@ namespace products_crud.Repositories.Persistence
         } 
         public void Add (Product product) {
             _db.Products.Add(product);
+        }
+        public Product GetProductById(int id) {
+            return _db.Products.FirstOrDefault(x => x.productId == id);
         }
     }
 }

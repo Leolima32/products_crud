@@ -1,0 +1,29 @@
+@model products_crud.Models.Product
+<div class="container">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1>Products</h1>
+    </div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h2>@Model.productName</h2></div>
+  <div class="panel-body">
+    <div class="row">
+        <div class="col-md-3">
+            <p>
+            <strong>Image:</strong> 
+            </p>
+            <img class="card-img-top" src="@Model.productImagePath" alt="Card image cap" style="width:232px">
+        </div>
+        <div class="col-md-8">
+            <p> <strong>Price:</strong> R$@Model.productPrice.ToString("0.00") </p>
+            <p><strong>Description:</strong>@Model.productDescription</p>
+            <p><strong>Categories</strong> 
+            @if(Model.Categories != null) {
+                @String.Join(", ", Model.Categories.Select(p => p.categoryName).ToArray())
+            } </p> 
+        </div>
+    </div>      
+  </div>
+</div>
+</div> 
+</div>

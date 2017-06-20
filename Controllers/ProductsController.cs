@@ -29,7 +29,9 @@ namespace products_crud.Controllers
             }
             return View(model);
         }
-
+        public IActionResult Details (int id) {
+            return View(_unit.Product.GetProductById(id));
+        }
         [HttpGet]
         public IActionResult Create () {
             ViewBag.Categories = _unit.Category.GetAllCategories();
