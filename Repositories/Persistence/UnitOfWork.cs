@@ -7,6 +7,7 @@ namespace products_crud.Repositories.Persistence
         private IProductsRepository _productsRepository;
         private ICategoriesRepository _categoryRepository;
         private ICategoryProductsRepository _categoryProductsRepository;
+        private IProductReviewRepository _productReviewRepository;
         private readonly ProductsContext _db;
         public UnitOfWork(ProductsContext db) { _db = db; }
 
@@ -37,6 +38,15 @@ namespace products_crud.Repositories.Persistence
             }
         }
 
+        public IProductReviewRepository ProductReview {
+            get {
+                if(_productReviewRepository == null) {
+                    _productReviewRepository = new ProductReviewRepository(_db);
+                }
+                return _productReviewRepository;
+            }
+        }
+        
         public void Commit() {
             _db.SaveChanges();
         }

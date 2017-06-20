@@ -11,6 +11,7 @@ namespace products_crud.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryProducts> CategoryProducts { get; set; }
+        public DbSet<ProductReview> ProductReviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

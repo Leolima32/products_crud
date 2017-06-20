@@ -7,6 +7,7 @@ namespace products_crud.Repositories
         IProductsRepository Product { get; }
         ICategoriesRepository Category { get; }
         ICategoryProductsRepository CategoryProducts { get; }
+        IProductReviewRepository ProductReview { get; }
         void Commit();
     }
 }
